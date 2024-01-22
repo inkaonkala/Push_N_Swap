@@ -100,6 +100,6 @@ void			pb(t_stack_node **b, t_stack_node **a);
 bool			number(char i);
 void			free_stack(t_stack_node **stack);
 bool			duplicates(t_stack_node **stack);
-void			stop_it(t_stack_node **a);
+void			*stop_it(t_stack_node **a);
 
 #endif

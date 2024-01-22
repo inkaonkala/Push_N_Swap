@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	stop_it(t_stack_node **a)
+void	*stop_it(t_stack_node **a)
 {
 	free_stack(a);
 	ft_printf("Error\n");
@@ -58,10 +58,7 @@ bool	duplicates(t_stack_node **stack)
 		while (nodes)
 		{
 			if (current->nbr == nodes->nbr)
-			{
-				ft_printf("Error\n");
-				return (true);
-			}
+				stop_it(stack);
 			nodes = nodes->next;
 		}
 		current = current->next;

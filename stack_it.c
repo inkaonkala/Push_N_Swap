@@ -14,8 +14,8 @@
 
 static long	ft_latoi(const char *str)
 {
-	long    n;
-	int     t;
+	long	n;
+	int		t;
 
 	n = 0;
 	t = 1;
@@ -87,6 +87,21 @@ void	init_stack(t_stack_node **a, char **argv)
 	}
 }
 
+static void	set_nodes(t_stack_node *new_node, t_stack_node *head,
+						t_stack_node *current)
+{
+	if (head == NULL)
+	{
+		head = new_node;
+		current = new_node;
+	}
+	else
+	{
+		current->next = new_node;
+		current = new_node;
+	}
+}
+
 char	**stack_it(char *nmb, char s)
 {
 	char			**numbers;
@@ -101,6 +116,8 @@ char	**stack_it(char *nmb, char s)
 	if (!numbers)
 		return (NULL);
 	i = 0;
+	head = NULL;
+	current = NULL;
 	while (numbers[i] != NULL)
 	{
 		new_node = (t_stack_node *)malloc(sizeof(t_stack_node) + 1);
@@ -108,18 +125,8 @@ char	**stack_it(char *nmb, char s)
 			return (NULL);
 		new_node->nbr = ft_atoi(numbers[i]);
 		new_node->next = NULL;
-		if (head == NULL)
-		{
-			head = new_node;
-			current = new_node;
-		}
-		else
-		{
-			current->next = new_node;
-			current = new_node;
-		}
+		set_nodes(new_node, head, current);
 		i++;
 	}
 	return (numbers);
 }
- 

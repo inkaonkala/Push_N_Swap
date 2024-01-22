@@ -14,10 +14,12 @@
 
 static void	push_n_swap(t_stack_node *a, t_stack_node *b)
 {
+	if (stack_len(a) <= 1)
+		stop_it(&a);
 	if (stack_len(a) == 2)
 		sa(&a);
 	else if (stack_len(a) == 3)
-			sort_three(&a);
+		sort_three(&a);
 	else
 		sort_it(&a, &b);
 	free_stack(&a);

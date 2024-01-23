@@ -48,7 +48,9 @@ bool	duplicates(t_stack_node **stack)
 {
 	t_stack_node	*current;
 	t_stack_node	*nodes;
+	int				i;
 
+	i = 0;
 	if (!stack || !(*stack))
 		return (false);
 	current = *stack;
@@ -58,10 +60,12 @@ bool	duplicates(t_stack_node **stack)
 		while (nodes)
 		{
 			if (current->nbr == nodes->nbr)
-				stop_it(stack);
+				i = 2;
 			nodes = nodes->next;
 		}
 		current = current->next;
 	}
+	if (i == 2)
+		stop_it(stack);
 	return (false);
 }

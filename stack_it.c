@@ -34,7 +34,13 @@ static long	ft_latoi(const char *str)
 		n += *str - '0';
 		str++;
 	}
-	return (n * t);
+	if (str == 0)
+		return (n * t);
+	else
+	{
+		ft_printf("Error\n");
+		exit (0);
+	}
 }
 
 static void	save_node(t_stack_node **stack, int num)

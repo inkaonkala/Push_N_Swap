@@ -13,14 +13,12 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <unistd.h>  //do i need this?
 # include <limits.h> // for MIN and MAX
 # include <stdbool.h> //for bools
-# include <stdio.h> // FOR TESTING, REMOVE!!!
 # include <stdlib.h> //for malloc
 # include "/Users/iniska/my_libft/libft.h"
 
-//struct!
+//struct
 typedef struct s_stack_node
 {
 	int					nbr;
